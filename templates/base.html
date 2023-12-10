@@ -80,23 +80,17 @@
                   </div>
                 </div>
               </div>
-              <div class="header-logo"><a href="index.html" class="logo logo-static"><img src="{% static '/images/logo-white.png' %}" alt="fooday" class="logo-img"></a><a href="index.html" class="logo logo-fixed"><img src="{% static '/images/logo.png' %}" alt="fooday" class="logo-img"></a></div>
+              <div class="header-logo"><a href="/" class="logo logo-static"><img src="{% static '/images/logo-white.png' %}" alt="fooday" class="logo-img"></a><a href="/" class="logo logo-fixed"><img src="{% static '/images/logo.png' %}" alt="fooday" class="logo-img"></a></div>
               <nav id="main-nav-offcanvas" class="main-nav-wrapper">
                 <div class="close-offcanvas-wrapper"><span class="close-offcanvas">x</span></div>
                 <div class="main-nav">
                   <ul id="main-nav" class="nav nav-pills">
-                    <li class="dropdown current-menu-item"><a href="index.html" class="dropdown-toggle">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="reservation.html">Reservation</a></li>
-                    <li class="dropdown"><a href="menu.html">Menu</a></li>
-                    <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">Blog</a><i class="fa fa-angle-down btn-open-dropdown"></i>
-                      <ul class="dropdown-menu">
-                        <li><a href="blogs.html">Blog List</a></li>
-                        <li><a href="blog-single.html">Blog Single</a></li>
-                        <li><a href="page-404.html">404 Page</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li class="dropdown current-menu-item"><a href="{% url "index" %}" class="dropdown-toggle">Home</a></li>
+                    <li><a href="{% url "about" %}">About</a></li>
+                    <li><a href="{% url "reservation" %}">Reservation</a></li>
+                    <li><a href="{% url "menu" %}">Menu</a></li>
+                    <li><a href="{% url "blogs" %}">Blog</a></li>
+                    <li><a href="{% url "contact" %}">Contact</a></li>
                   </ul>
                 </div>
               </nav>
