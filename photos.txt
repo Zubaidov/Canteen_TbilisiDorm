@@ -1,0 +1,21 @@
+Link to download demo photo:
+
+https://drive.google.com/file/d/1KttQ1E4ATGiKHlp40zeObmVLKMMFOcdp/view?usp=sharing
+
+Just replace folder "assets/images/" in source theme.
+-------------------------------
+
+Due to copyright we cannot provide all images from our demo.
+We really want to help your project complete at the best way, so we recommend some resource for you.
+
+Google Image Search
+https://images.google.com
+
+Asset resources recommend from Envato:
+https://help.market.envato.com/hc/en-us/articles/203039194-Asset-Resources
+
+We also recommend:
+PhotoDune
+http://photodune.net
+
+Hope this help!
