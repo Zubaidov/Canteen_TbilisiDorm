@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Menu
 
 
 def index(request):
@@ -16,7 +16,10 @@ def reservation(request):
     return render(request, 'reservation.html', context)
 
 def menu(request):
-    context={}
+    myproducts = Menu.objects.all()
+    context={
+        "myproducts" : myproducts,
+    }
     return render(request, 'menu.html', context)
 
 def blogs(request):
@@ -29,4 +32,11 @@ def contact(request):
 
 def error404(request):
     context={}
-    return render(request, 'error404', context)
+    return render(request, 'error404.html', context)
+
+def productSingle(request, id):
+    myproducts = Menu.objects.all().get(id=id)
+    context = {
+        "myproducts": myproducts,
+    }
+    return render(request, 'productSingle.html', context)
