@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404
 from django.http import HttpResponse
 from .models import Menu
 
@@ -16,11 +16,20 @@ def reservation(request):
     return render(request, 'reservation.html', context)
 
 def menu(request):
-    myproducts = Menu.objects.all()
+    myproducts = Menu.published.all()
     context={
         "myproducts" : myproducts,
     }
     return render(request, 'menu.html', context)
+
+def productSingle(request, id):
+    
+    myproducts = get_list_or_404(Menu, id=id, status=Menu.Status.PUBLISHED)
+    context = {
+        "myproducts": myproducts,
+    }
+    return render(request, 'product-single.html', context)
+
 
 def blogs(request):
     context={}
@@ -33,10 +42,3 @@ def contact(request):
 def error404(request):
     context={}
     return render(request, 'error404.html', context)
-
-def productSingle(request, id):
-    myproducts = Menu.objects.all().get(id=id)
-    context = {
-        "myproducts": myproducts,
-    }
-    return render(request, 'productSingle.html', context)
