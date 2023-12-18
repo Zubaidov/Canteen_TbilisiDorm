@@ -47,7 +47,7 @@
                               <div class="group-btn"><a href="javascript:void(0)" class="swin-btn btn-link"><i class="icons fa fa-link"></i></a><a href="javascript:void(0)" class="swin-btn btn-add-to-card"><i class="fa fa-shopping-basket"></i></a></div>
                             </div>
                             <div class="block-content">
-                              <h5 class="title"><a href="{% url "productSingle" product.id %}">{{product.title}}</a></h5>
+                              <h5 class="title"><a href="{{ product.get_absolute_url }}">{{product.title}}</a></h5>
                               <div class="product-info">
                                 <ul class="list-inline">
                                   <li class="author"><span>Seller:</span><span class="text">{{product.author}}</span></li>

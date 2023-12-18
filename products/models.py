@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.query import QuerySet
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class PublishedMenuManager(models.Manager):
     def get_queryset(self) -> QuerySet:
@@ -14,8 +15,8 @@ class Menu(models.Model):
         PUBLISHED = 'PB', 'PUBLISHED'
 
     title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255)
-    author = models.ForeignKey(User, on_delete=models.CASCADE,related_name='blog_posts')
+    slug = models.SlugField(max_length=255, unique_for_date='publish')
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     barcode = models.IntegerField(unique=True)
     amount = models.IntegerField(default=0)
     desc = models.TextField(null=True)
@@ -32,3 +33,9 @@ class Menu(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+    
+    def get_absolute_url(self):
+        return reverse("productSingle", args=[self.publish.year,
+                                              self.publish.month,
+                                              self.publish.day,
+                                              self.slug])

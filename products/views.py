@@ -22,9 +22,13 @@ def menu(request):
     }
     return render(request, 'menu.html', context)
 
-def productSingle(request, id):
+def productSingle(request, year, month, day, slug):
     
-    myproducts = get_list_or_404(Menu, id=id, status=Menu.Status.PUBLISHED)
+    myproducts = get_list_or_404(Menu, status=Menu.Status.PUBLISHED, 
+                                 publish__year = year, 
+                                 publish__month = month, 
+                                 publish__day = day, 
+                                 slug = slug)
     context = {
         "myproducts": myproducts,
     }
