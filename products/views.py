@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_list_or_404
 from django.http import HttpResponse
 from .models import Menu
-
+from django.core.mail import send_mail
 
 def index(request):
     context = {}
@@ -19,7 +19,7 @@ def menu(request):
     myproducts = Menu.published.all()
     context={
         "myproducts" : myproducts,
-    }
+    }   
     return render(request, 'menu.html', context)
 
 def productSingle(request, year, month, day, slug):
