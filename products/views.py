@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_list_or_404
 from django.http import HttpResponse
-from .models import Menu, Chefs
+from .models import Menu, Chefs, AboutCanteen
 from django.core.mail import send_mail
 
 def index(request):
@@ -9,7 +9,10 @@ def index(request):
     return render(request, 'index.html', context)
 
 def about(request):
-    context = {}
+    aboutstory = AboutCanteen.objects.all()
+    context = {
+        'aboutstory':aboutstory
+        }
     return render(request, 'about.html', context)
 
 def menu(request):

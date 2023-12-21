@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Menu, Chefs
+from .models import Menu, Chefs, AboutCanteen
 
 @admin.register(Menu)
 class MenuAdmin(admin.ModelAdmin):
@@ -15,3 +15,9 @@ class MenuAdmin(admin.ModelAdmin):
 class ChefList(admin.ModelAdmin):
     list_display = ['fname', 'lname', 'position']
     list_filter = ['fname', 'lname', 'position']
+
+@admin.register(AboutCanteen)
+class AboutPage(admin.ModelAdmin):
+    list_display = ['year', 'desc']
+    list_filter = ['year']
+    search_fields = ['year', 'desc']
