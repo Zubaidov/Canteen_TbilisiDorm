@@ -14,7 +14,7 @@
             </div>
           </div>
           <div class="page-content-wrapper">
-            <section class="reservation-section-03 padding-top-100 padding-bottom-100">
+            <!-- <section class="reservation-section-03 padding-top-100 padding-bottom-100">
               <div class="container">
                 <div class="row">
                   <div class="col-md-12">
@@ -28,7 +28,7 @@
                         <div class="col-md-8 col-md-offset-4">
                           <div class="row">
                             <div class="col-md-12">
-                              <p class="reservation-form-title text-center">We willing to help you make the reservation online to save your time and money or you can call us directly at:<span class="text-default"> 225-88888</span></p>
+                              <p class="reservation-form-title text-center">Make a Reservation what type of sandwitch do you want:<span class="text-default"> +995 579185029</span></p>
                             </div>
                           </div>
                           <div class="swin-sc swin-sc-contact-form light mtl">
@@ -76,7 +76,7 @@
                                     <div class="fa fa-clock-o"></div>
                                   </div>
                                   <select type="text" placeholder="Time" class="form-control">
-                                    <option>7:00 AM</option>
+                                    <option>8:00 AM</option>
                                     <option>8:00 AM</option>
                                     <option>9:00 AM</option>
                                     <option>10:00 AM</option>
@@ -91,7 +91,7 @@
                                     <option>7:00 PM</option>
                                     <option>8:00 PM</option>
                                     <option>9:00 PM</option>
-                                    <option>10:00 PM</option>
+                                    <option>00:00 AM</option>
                                   </select>
                                 </div>
                               </div>
@@ -109,8 +109,8 @@
                   </div>
                 </div>
               </div>
-            </section>
-            <section class="product-sesction-03-1 padding-top-100 padding-bottom-100"><img src="{% static '/images/product/product-decorate.jpg' %}" alt="" class="img-responsive img-decorate">
+            </section> -->
+            <!-- <section class="product-sesction-03-1 padding-top-100 padding-bottom-100"><img src="{% static '/images/product/product-decorate.jpg' %}" alt="" class="img-responsive img-decorate">
               <div class="container">
                 <div class="row">
                   <div class="col-lg-6 col-md-4"></div>
@@ -184,8 +184,8 @@
                   </div>
                 </div>
               </div>
-            </section>
-            <section class="product-sesction-03 padding-top-100 padding-bottom-100">
+            </section> -->
+            <!-- <section class="product-sesction-03 padding-top-100 padding-bottom-100">
               <div class="container">
                 <div class="row">
                   <div class="col-md-12">
@@ -355,25 +355,25 @@
                   </div>
                 </div>
               </div>
-            </section>
+            </section> -->
             <section class="counter-section-03 padding-top-100 padding-bottom-100">
               <div class="container"><img src="{% static '/images/background/vegetable_01.png' %}" alt="" class="img-left img-bg img-responsive"><img src="{% static '/images/background/vegetable_02.png' %}" alt="" class="img-right img-bg img-responsive">
                 <div class="swin-sc swin-sc-counter">
                   <div class="row">
                     <div class="col-md-3 col-sm-6 col-xs-12">
-                      <div class="counter-info item"><span data-from="50" data-to="103" data-speed="3000" data-refresh-interval="5" class="number timer">0</span><span class="caption">/dishes</span></div>
+                      <div class="counter-info item"><span data-from="0" data-to="4" data-speed="100" data-refresh-interval="5" class="number timer">0</span><span class="caption">/dishes</span></div>
                       <div class="counter-avatar"><img src="{% static '/images/counter-1.png' %}" alt="fooday" class="img img-responsive"></div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
-                      <div class="counter-info item"><span data-from="2300" data-to="2389" data-speed="3000" data-refresh-interval="5" class="number timer">0</span><span class="caption">/customers</span></div>
+                      <div class="counter-info item"><span data-from="0" data-to="17" data-speed="100" data-refresh-interval="5" class="number timer">0</span><span class="caption">/customers</span></div>
                       <div class="counter-avatar"><img src="{% static '/images/counter-2.png' %}" alt="fooday" class="img img-responsive"></div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
-                      <div class="counter-info item"><span data-from="1" data-to="20" data-speed="3000" data-refresh-interval="5" class="number timer">0</span><span class="caption">/awards</span></div>
+                      <div class="counter-info item"><span data-from="0" data-to="1" data-speed="100" data-refresh-interval="5" class="number timer">0</span><span class="caption">/awards</span></div>
                       <div class="counter-avatar"><img src="{% static '/images/counter-3.png' %}" alt="fooday" class="img img-responsive"></div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
-                      <div class="counter-info item"><span data-from="2500" data-to="2589" data-speed="3000" data-refresh-interval="5" class="number timer">0</span><span class="caption">/working hours</span></div>
+                      <div class="counter-info item"><span data-from="0" data-to="578" data-speed="100" data-refresh-interval="5" class="number timer">0</span><span class="caption">/working hours</span></div>
                       <div class="counter-avatar"><img src="{% static '/images/counter-4.png' %}" alt="fooday" class="img img-responsive"></div>
                     </div>
                   </div>
@@ -386,71 +386,29 @@
                   <div class="col-md-12">
                     <div class="swin-sc swin-sc-title">
                       <p class="top-title"><span>Meet Our</span></p>
-                      <h3 class="title">Awesome Master Chefs</h3>
+                      <h3 class="title">Awesome Canteen Chefs</h3>
                     </div>
                     <div class="swin-sc swin-sc-team-slider">
+                      {% for chef in chefs %}
                       <div class="team-item swin-transition wow fadeInLeft">
                         <div class="team-img-wrap">
                           <div class="team-img"><img src="{% static '/images/team/team-1.png' %}" alt="fooday" class="img img-responsive"></div>
                         </div>
-                        <p class="team-name">MICHAEL DOE</p>
-                        <p class="team-position">Head Chef</p>
+                        <p class="team-name">{{chef.fname}} {{chef.lname}}</p>
+                        <p class="team-position">{{chef.position}}</p>
                         <hr>
                         <ul class="socials-nb list-inline">
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                          <li><a href="{{chef.insta}}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                          <li><a href="{{chef.teleg}}" target="_blank"><i class="fa fa-telegram"></i></a></li>
                         </ul>
                       </div>
-                      <div class="team-item swin-transition wow fadeInUp">
-                        <div class="team-img-wrap">
-                          <div class="team-img"><img src="{% static '/images/team/team-2.png' %}" alt="fooday" class="img img-responsive"></div>
-                        </div>
-                        <p class="team-name">Teresa Doe</p>
-                        <p class="team-position">Head Chef</p>
-                        <hr>
-                        <ul class="socials-nb list-inline">
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                      </div>
-                      <div class="team-item swin-transition wow fadeInRight">
-                        <div class="team-img-wrap">
-                          <div class="team-img"><img src="{% static '/images/team/team-3.png' %}" alt="fooday" class="img img-responsive"></div>
-                        </div>
-                        <p class="team-name">BENJAMIN MARK</p>
-                        <p class="team-position">Head Chef</p>
-                        <hr>
-                        <ul class="socials-nb list-inline">
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                      </div>
-                      <div class="team-item swin-transition">
-                        <div class="team-img-wrap">
-                          <div class="team-img"><img src="{% static '/images/team/team-4.png' %}" alt="fooday" class="img img-responsive"></div>
-                        </div>
-                        <p class="team-name">Teresa Doe</p>
-                        <p class="team-position">Head Chef</p>
-                        <hr>
-                        <ul class="socials-nb list-inline">
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                      </div>
+                      {% endfor %}
                     </div>
                   </div>
                 </div>
               </div>
             </section>
-            <section class="video-section-03 banner-section padding-top-100 padding-bottom-100">
+            <!-- <section class="video-section-03 banner-section padding-top-100 padding-bottom-100">
               <div class="container">
                 <div class="row">
                   <div class="col-md-8 col-md-offset-2">
@@ -466,8 +424,8 @@
                   </div>
                 </div>
               </div>
-            </section>
-            <section class="blog-section-03 padding-top-100 padding-bottom-100">
+            </section> -->
+            <!-- <section class="blog-section-03 padding-top-100 padding-bottom-100">
               <div class="container">
                 <div class="swin-sc swin-sc-title">
                   <p class="top-title"><span>Update From</span></p>
@@ -580,7 +538,7 @@
                 </div>
                 <div class="swin-btn-wrap center mtxxl"><a href="#" class="swin-btn center btn-transparent"> <span>Full Blog</span></a></div>
               </div>
-            </section>
+            </section> -->
             <section class="partner-section-03 padding-bottom-100">
               <div class="container">
                 <div data-item="6" class="swin-sc swin-sc-partner">

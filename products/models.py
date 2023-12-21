@@ -39,3 +39,19 @@ class Menu(models.Model):
                                               self.publish.month,
                                               self.publish.day,
                                               self.slug])
+    
+
+class Chefs(models.Model):
+
+    class Status(models.TextChoices):
+        HEAD_CHEF = 'HEAD CHEF', 'HEAD CHEF'
+        ASSISTENT = 'ASSISTENT', 'ASSISTENT'
+    
+    fname = models.CharField(max_length=100)
+    lname = models.CharField(max_length=100)
+    position = models.CharField(max_length=50, choices=Status.choices, default=Status.ASSISTENT)
+    insta = models.CharField(max_length=255, null=True)
+    teleg = models.CharField(max_length=255, null=True)
+
+    def __str__(self):
+        return f"{self.fname} {self.lname}"

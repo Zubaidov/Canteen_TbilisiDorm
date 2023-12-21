@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_list_or_404
 from django.http import HttpResponse
-from .models import Menu
+from .models import Menu, Chefs
 from django.core.mail import send_mail
 
 def index(request):
-    context = {}
+    chefs = Chefs.objects.all()
+    context = {'chefs': chefs}
     return render(request, 'index.html', context)
 
 def about(request):
