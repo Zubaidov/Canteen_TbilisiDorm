@@ -12,10 +12,6 @@ def about(request):
     context = {}
     return render(request, 'about.html', context)
 
-def reservation(request):
-    context = {}
-    return render(request, 'reservation.html', context)
-
 def menu(request):
     myproducts = Menu.published.all()
     context={
@@ -35,10 +31,6 @@ def productSingle(request, year, month, day, slug):
     }
     return render(request, 'product-single.html', context)
 
-
-def blogs(request):
-    context={}
-    return render(request, 'blogs.html', context)
 
 def contact(request):
     context = {}

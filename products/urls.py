@@ -8,8 +8,6 @@ urlpatterns = [
     path('menu/', views.menu, name='menu'),
     path('menu/<int:year>/<int:month>/<int:day>/<slug:slug>/', views.productSingle, name='productSingle'),
     path('about/', views.about, name='about'),
-    path('reservation/', views.reservation, name='reservation'),
-    path('blogs/', views.blogs, name='blogs'),
     path('contact/', views.contact, name='contact'),
     path('error404/', views.error404, name='error404'),
 
