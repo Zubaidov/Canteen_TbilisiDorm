@@ -22,7 +22,6 @@ class Menu(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique_for_date='publish')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.CharField(max_length=50, choices=Category.choices)
     barcode = models.IntegerField(unique=True)
     amount = models.IntegerField(default=0)
     desc = models.TextField(null=True)

@@ -17,9 +17,11 @@ def about(request):
 
 def menu(request):
     myproducts = Menu.published.all()
+    categories = Menu.Category.choices
     context={
         "myproducts" : myproducts,
-    }   
+        "categories" : categories,
+    }
     return render(request, 'menu.html', context)
 
 def productSingle(request, year, month, day, slug):
