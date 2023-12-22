@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_list_or_404
 from django.http import HttpResponse
-from .models import Menu, Chefs, AboutCanteen
+from .models import Products, Chefs, PageAbout, Category
 from django.core.mail import send_mail
 
 def index(request):
@@ -9,24 +9,22 @@ def index(request):
     return render(request, 'index.html', context)
 
 def about(request):
-    aboutstory = AboutCanteen.objects.all()
+    aboutstory = PageAbout.objects.all()
     context = {
         'aboutstory':aboutstory
         }
     return render(request, 'about.html', context)
 
-def menu(request):
-    myproducts = Menu.published.all()
-    categories = Menu.Category.choices
+def products(request):
+    myproducts = Products.published.all()
     context={
         "myproducts" : myproducts,
-        "categories" : categories,
     }
-    return render(request, 'menu.html', context)
+    return render(request, 'products.html', context)
 
-def productSingle(request, year, month, day, slug):
+def product(request, year, month, day, slug):
     
-    myproducts = get_list_or_404(Menu, status=Menu.Status.PUBLISHED, 
+    myproducts = get_list_or_404(Products, status=Products.Status.PUBLISHED, 
                                  publish__year = year, 
                                  publish__month = month, 
                                  publish__day = day, 
@@ -34,7 +32,7 @@ def productSingle(request, year, month, day, slug):
     context = {
         "myproducts": myproducts,
     }
-    return render(request, 'product-single.html', context)
+    return render(request, 'product.html', context)
 
 
 def contact(request):

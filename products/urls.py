@@ -5,8 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('menu/', views.menu, name='menu'),
-    path('menu/<int:year>/<int:month>/<int:day>/<slug:slug>/', views.productSingle, name='productSingle'),
+    path('products/', views.products, name='products'),
+    path('product/<int:year>/<int:month>/<int:day>/<slug:slug>/', views.product, name='product'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('error404/', views.error404, name='error404'),
