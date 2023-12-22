@@ -61,7 +61,7 @@ class Products(models.Model):
         return f"{self.title}"
     
     def get_absolute_url(self):
-        return reverse("product", args=[self.publish.year,
+        return reverse("product_detail", args=[self.publish.year,
                                               self.publish.month,
                                               self.publish.day,
                                               self.slug])

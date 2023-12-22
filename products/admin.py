@@ -2,8 +2,8 @@ from django.contrib import admin
 from .models import Products, Chefs, PageAbout, Category
 
 @admin.register(Products)
-class MenuAdmin(admin.ModelAdmin):
-    list_display = ['title', 'slug', 'author', 'publish', 'status', 'price']
+class Products(admin.ModelAdmin):
+    list_display = ['title', 'category', 'slug', 'author', 'publish', 'status', 'price']
     list_filter = ['status', 'created', 'publish', 'author']
     search_fields = ['title', 'body']
     prepopulated_fields = {'slug': ('title',)}

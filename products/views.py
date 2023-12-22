@@ -16,13 +16,15 @@ def about(request):
     return render(request, 'about.html', context)
 
 def products(request):
-    myproducts = Products.published.all()
+    products = Products.published.all()
+    categories = Category.objects.all()
     context={
-        "myproducts" : myproducts,
+        "products" : products,
+        "categories" : categories,
     }
     return render(request, 'products.html', context)
 
-def product(request, year, month, day, slug):
+def product_detail(request, year, month, day, slug):
     
     myproducts = get_list_or_404(Products, status=Products.Status.PUBLISHED, 
                                  publish__year = year, 
@@ -32,7 +34,7 @@ def product(request, year, month, day, slug):
     context = {
         "myproducts": myproducts,
     }
-    return render(request, 'product.html', context)
+    return render(request, 'product_detail.html', context)
 
 
 def contact(request):

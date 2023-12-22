@@ -1,5 +1,5 @@
 {% extends "base.html" %}{% load static %}
-{% block title %}Menu{% endblock title %}
+{% block title %}Products{% endblock title %}
 {% block body %}
         <div class="page-container">
           <div data-bottom-top="background-position: 50% 50px;" data-center="background-position: 50% 0px;" data-top-bottom="background-position: 50% -50px;" class="page-title page-menu">
@@ -24,7 +24,7 @@
                       {% for category in categories  %}
                       <div class="item">
                         <div class="cat-icons"><i class="icons swin-icon-pasta"></i>
-                          <h5 class="cat-title">{{category.1}}</h5>
+                          <h5 class="cat-title">{{category}}</h5>
                         </div>
                       </div>
                       {% endfor %}
@@ -34,7 +34,7 @@
                   </div>
                   <div class="products nav-slider">
                     <div class="row slick-padding">
-                      {% for product in myproducts %}
+                      {% for product in products %}
                         <div class="col-md-4 col-sm-6 col-xs-12">
                           <div class="blog-item item swin-transition">
                             <div class="block-img"><img src="{% static '/images/product/product-2a.jpg' %}" alt="" class="img img-responsive">
