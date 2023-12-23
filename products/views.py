@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.http import HttpResponse
 from .models import Products, Chefs, PageAbout, Category
 from django.core.mail import send_mail
@@ -15,12 +15,20 @@ def about(request):
         }
     return render(request, 'about.html', context)
 
-def products(request):
-    products = Products.published.all()
+def products(request, category_slug=None):
+    category = None
     categories = Category.objects.all()
+    products = Products.published.all()
+
+    if category_slug:
+        category = get_object_or_404(Category, 
+                                     slug = category_slug)
+        products = products.filter(category=category)
+
     context={
-        "products" : products,
+        "category" : category,
         "categories" : categories,
+        "products" : products,
     }
     return render(request, 'products.html', context)
 

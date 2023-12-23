@@ -16,6 +16,12 @@ class Chefs(models.Model):
     insta = models.CharField(max_length=255, default='https://www.instagram.com/')
     teleg = models.CharField(max_length=255, default='https://www.instagram.com/')
 
+    class Meta:
+        ordering = ['fname', 'lname']
+        indexes = [models.Index(fields=['fname', 'lname']),]
+        verbose_name = 'chef'
+        verbose_name_plural = 'chefs'
+
     def __str__(self):
         return f"{self.fname} {self.lname}"
 
@@ -25,12 +31,25 @@ class PublishedManager_Products(models.Manager):
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=250, unique=True)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['name']
+        indexes = [
+            models.Index(fields=['name']),
+            ]
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+    
     def __str__(self):
         return f"{self.name}"
+    
+    def get_absolute_url(self):
+        return reverse("product_list_by_category", args=[self.slug])
+    
 
 
 class Products(models.Model):
@@ -53,9 +72,12 @@ class Products(models.Model):
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
     objects = models.Manager() # The default manager.
     published = PublishedManager_Products() # Our custom manager.
+    
     class Meta:
         ordering = ['-publish']
         indexes = [models.Index(fields=['-publish'])]
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
 
     def __str__(self):
         return f"{self.title}"
@@ -66,11 +88,14 @@ class Products(models.Model):
                                               self.publish.day,
                                               self.slug])
 
-    
-
-    
 
 class PageAbout(models.Model):
+
+    class Meta:
+        ordering = ['year']
+        verbose_name = 'Page About_Us'
+        verbose_name_plural = 'Page About_Us'
+
     year = models.IntegerField(null=True)
     dateofstart = models.DateField(null=True)
     desc = models.TextField(null=True)

@@ -3,8 +3,9 @@ from .models import Products, Chefs, PageAbout, Category
 
 @admin.register(Products)
 class Products(admin.ModelAdmin):
-    list_display = ['title', 'category', 'slug', 'author', 'publish', 'status', 'price']
+    list_display = ['title', 'slug', 'price', 'amount', 'category', 'created', 'updated']
     list_filter = ['status', 'created', 'publish', 'author']
+    list_editable = ['price', 'amount']
     search_fields = ['title', 'body']
     prepopulated_fields = {'slug': ('title',)}
     raw_id_fields = ['author']
@@ -13,8 +14,9 @@ class Products(admin.ModelAdmin):
 
 @admin.register(Category)
 class ProductCategory(admin.ModelAdmin):
-    list_display = ['name']
-    search_fields = ['name']
+    list_display = ['name', 'slug']
+    search_fields = ['name', 'slug']
+    prepopulated_fields = {'slug': ('name',)}
 
 @admin.register(Chefs)
 class ChefList(admin.ModelAdmin):
